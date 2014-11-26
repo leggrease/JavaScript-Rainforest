@@ -1,0 +1,30 @@
+<!--  <h3> Reviews</h3>
+
+	 <p>Reviews for <%= @product.name %></p>
+
+	 <% @product.reviews.newest_first.each do |review| %>
+	 	<p>
+	 		<%= review.comment %>
+	 		<br>
+	 		<% if review.user != nil %>
+	 			<em> by <%=link_to review.user.name, user_url(review.user) %></em>
+
+	 			Added on: <%= review.created_at %>
+	 		<% end %>
+	 	</p>
+	 <% end %> -->
+
+<div id="review-list">
+  <% @product.reviews.each do |review| %>
+    <div class="review">
+      <p class="comment">
+      <%= review.comment %>
+      </p>
+    	<% if review.user != nil %>
+      		<div class="poster">
+        	Posted by <%= review.user.name %> on <%= review.created_at %>
+      		</div>
+      	<% end %>
+    </div>
+  <% end %>
+</div>
